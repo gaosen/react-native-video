@@ -3,15 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "react-native start",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
     "postinstall": "rm -rf node_modules/react-native-video/{examples,node_modules}",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "^16.12.0",
-    "react-native": "0.61.5",
-    "react-native-windows": "^0.61.0-0",
+    "react": "16.9.0",
+    "react-native": "0.60.5",
     "react-native-video": "file:../.."
   },
   "devDependencies": {

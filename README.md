@@ -187,45 +187,31 @@ protected List<ReactPackage> getPackages() {
 <details>
   <summary>Windows RNW C++/WinRT details</summary>
 
-#### Autolinking
-
-**React Native Windows 0.63 and above**
-
-Autolinking should automatically add react-native-video to your app.
-
-#### Manual Linking
-
-**React Native Windows 0.62**
-
 Make the following additions to the given files manually:
 
-##### **windows\myapp.sln**
+#### **windows/myapp.sln**
 
-Add the _ReactNativeVideoCPP_ project to your solution (eg. `windows\myapp.sln`):
+Add the `ReactNativeVideoCPP` project to your solution.
 
-1. Open your solution in Visual Studio 2019
-2. Right-click Solution icon in Solution Explorer > Add > Existing Project...
-3. Select `node_modules\react-native-video\windows\ReactNativeVideoCPP\ReactNativeVideoCPP.vcxproj`
+1. Open the solution in Visual Studio 2019
+2. Right-click Solution icon in Solution Explorer > Add > Existing Project
+   Select `node_modules\react-native-video\windows\ReactNativeVideoCPP\ReactNativeVideoCPP.vcxproj`
 
-##### **windows\myapp\myapp.vcxproj**
+#### **windows/myapp/myapp.vcxproj**
 
-Add a reference to _ReactNativeVideoCPP_ to your main application project (eg. `windows\myapp\myapp.vcxproj`):
+Add a reference to `ReactNativeVideoCPP` to your main application project. From Visual Studio 2019:
 
-1. Open your solution in Visual Studio 2019
-2. Right-click main application project > Add > Reference...
-3. Check _ReactNativeVideoCPP_ from Solution Projects
+1. Right-click main application project > Add > Reference...
+  Check `ReactNativeVideoCPP` from Solution Projects.
 
-##### **pch.h**
+2. Modify files below to add the video package providers to your main application project
+#### **pch.h**
 
 Add `#include "winrt/ReactNativeVideoCPP.h"`.
 
-##### **app.cpp**
+#### **app.cpp**
 
 Add `PackageProviders().Append(winrt::ReactNativeVideoCPP::ReactPackageProvider());` before `InitializeComponent();`.
-
-**React Native Windows 0.61 and below**
-
-Follow the manual linking instuctions for React Native Windows 0.62 above, but substitute _ReactNativeVideoCPP61_ for _ReactNativeVideoCPP_.
 
 </details>
 
@@ -489,7 +475,7 @@ Platforms: iOS
 * **landscape**
 * **portrait**
 
-Platforms: iOS
+Platforms: Android ExoPlayer, iOS
 
 #### headers
 Pass headers to the HTTP client. Can be used for authorization. Headers must be a part of the source object.
@@ -1316,7 +1302,7 @@ On iOS, if you would like to allow other apps to play music over your video comp
 }
 ```
 
-You can also use the [ignoreSilentSwitch](#ignoresilentswitch) prop.
+You can also use the [ignoreSilentSwitch](ignoresilentswitch) prop.
 </details>
 
 ### Android Expansion File Usage
