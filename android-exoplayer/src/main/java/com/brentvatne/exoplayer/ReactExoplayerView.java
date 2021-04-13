@@ -419,7 +419,7 @@ class ReactExoplayerView extends FrameLayout implements
         if (indexOfPC != -1) {
             removeViewAt(indexOfPC);
         }
-        addView(playerControlView, 1, layoutParams);
+        addView(playerControlView);
     }
 
     /**
@@ -793,6 +793,8 @@ class ReactExoplayerView extends FrameLayout implements
                 videoLoaded();
                 // Setting the visibility for the playerControlView
                 if (playerControlView != null) {
+                    reLayout(playerControlView);
+                    playerControlView.setShowTimeoutMs(0);
                     playerControlView.show();
                 }
                 setKeepScreenOn(preventsDisplaySleepDuringVideoPlayback);
