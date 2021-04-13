@@ -794,7 +794,12 @@ class ReactExoplayerView extends FrameLayout implements
                 // Setting the visibility for the playerControlView
                 if (playerControlView != null) {
                     reLayout(playerControlView);
-                    playerControlView.setShowTimeoutMs(0);
+                    if (player != null && player.getPlayWhenReady()) {
+                        playerControlView.setShowTimeoutMs(PlayerControlView.DEFAULT_SHOW_TIMEOUT_MS);
+                    } else {
+                        playerControlView.setShowTimeoutMs(0);
+                    }
+
                     playerControlView.show();
                 }
                 setKeepScreenOn(preventsDisplaySleepDuringVideoPlayback);
